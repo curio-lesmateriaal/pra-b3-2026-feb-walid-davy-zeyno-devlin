@@ -18,7 +18,10 @@
                     <label for="titel">Titel:</label>
                     <input type="text" name="titel" id="titel" class="form-input">
                 </div>
-                <div class="form-group"
+                <div class="form-group">
+                    <label for="beschrijving">Beschrijving:</label>
+                    <textarea name="beschrijving" id="beschrijving" class="form-input" rows="4"></textarea>
+                </div>
         
             </form>
         </div>
