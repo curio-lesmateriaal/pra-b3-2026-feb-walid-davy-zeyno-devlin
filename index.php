@@ -13,12 +13,25 @@
     <div class="board-container">
         <h1 class="board-title">TakenLijst</h1>
         
-        <button id="addTask" class="new-task-btn">+ Nieuwe Taak</button>
+        <a id="addTask" href="tasks/create.php" class="new-task-btn">+ Nieuwe Taak</a>
+       
 
         <div class="board">
             <div class="column">
                 <h2>to do</h2>
                 <div id="todo-tasks"></div>
+                <?php
+                require_once 'backend/conn.php';
+                $statement = $conn->prepare("SELECT * FROM taken WHERE status = 'todo'");
+                $statement->execute();
+                $tasks = $statement->fetchAll(PDO::FETCH_ASSOC);
+                ?>
+                <?php foreach ($tasks as $task) : ?>
+                    <div class="task" data-id="<?= $task['id'] ?>">
+                        <h3><?= $task['titel'] ?></h3>
+                        <p><?= $task['beschrijving'] ?></p>
+                    </div>
+                <?php endforeach; ?>
             </div>
 
             <div class="column">

@@ -134,7 +134,7 @@ label {
   display: inline-block;
   padding: 0.8rem 1.5rem;
   margin-bottom: 2rem;
-  background-color: #4CAF50;
+  background-color: #000000;
   border: none;
   border-radius: 6px;
   cursor: pointer;
@@ -145,11 +145,11 @@ label {
 }
 
 .new-task-btn:hover {
-  background-color: #45a049;
+  background-color: #000000;
 }
 
 .new-task-btn:active {
-  background-color: #3d8b40;
+  background-color: #000000;
 }
 
 .board {
