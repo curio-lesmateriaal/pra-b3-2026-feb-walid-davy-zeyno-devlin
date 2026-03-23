@@ -19,13 +19,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
         ":id" => $id
     ]);
 
-    echo "<h2>Taak succesvol bijgewerkt!</h2>";
-    echo "<p><strong>Title:</strong> $title</p>";
-    echo "<p><strong>Beschrijving:</strong> $beschrijving</p>";
-    echo "<p><strong>Afdeling:</strong> $afdeling</p>";
-    echo "<p><strong>Status:</strong> $status</p>";
-
-    // Stop hier als je niet opnieuw het formulier wilt tonen
+    header('Location: tasks/index.php?edit_success=1');
     exit;
 }
 
@@ -64,6 +58,7 @@ $task = $statement->fetch(PDO::FETCH_ASSOC);
     <select name="status">
         <option value="open" <?php if($task['status'] == 'open') echo 'selected'; ?>>open</option>
         <option value="in progress" <?php if($task['status'] == 'in progress') echo 'selected'; ?>>in progress</option>
+        <option value="review" <?php if($task['status'] == 'review') echo 'selected'; ?>>review</option>
         <option value="done" <?php if($task['status'] == 'done') echo 'selected'; ?>>done</option>
     </select><br><br>
     
